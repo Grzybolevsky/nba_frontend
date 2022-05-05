@@ -26,7 +26,7 @@ let MatchesList = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        axios.get(`/api/games`,
+        axios.get(`/games`,
             {params: {page: searchParams.get('page'), 'per_page': 40}})
             .then((response) => {
                 setMatches(response.data.data);

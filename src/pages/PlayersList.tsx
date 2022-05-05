@@ -22,7 +22,7 @@ let PlayersList = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`/api/players`,
+        axios.get(`/players`,
             {params: {page: searchParams.get('page'), 'per_page': 24}})
             .then((response) => {
                 setPlayers(response.data.data);
