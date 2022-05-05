@@ -27,7 +27,7 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({player, on
             <CardMedia
                 component="img"
                 height="300"
-                image={`/photo/${101162}.png`}
+                image={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${101162}.png`}
                 alt="green iguana"
             />
             <CardContent>
