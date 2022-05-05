@@ -40,7 +40,8 @@ let PlayersList = () => {
             {!isLoading && !error &&
                 <>
                     <Typography>Page: {searchParams.get('page') || 0 + 1}</Typography>
-                    <Pagination count={pages} page={Number(searchParams.get('page')) || 0} onChange={ (e, page) => setSearchParams({page: String(page)}, {replace: true})}/>
+                    <Pagination count={pages} page={Number(searchParams.get('page')) || 0}
+                                onChange={(e, page) => setSearchParams({page: String(page)}, {replace: true})}/>
                     <ItemList container spacing={4}>
                         {players.map(player =>
                             <Grid item xs={3} key={player.first_name + player.last_name}>

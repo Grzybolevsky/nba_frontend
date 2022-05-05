@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
-import Button from '@mui/material/Button'
-import {Link, useSearchParams} from 'react-router-dom'
+import {useSearchParams} from 'react-router-dom'
 import axios from "axios";
 import {Pagination, Table, TableBody, TableCell, TableHead, TableRow, Typography} from "@mui/material";
 

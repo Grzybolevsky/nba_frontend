@@ -1,7 +1,7 @@
 import {Card, CardActions, CardContent, CardMedia, Typography} from '@mui/material'
 import Button from '@mui/material/Button'
 import React, {FunctionComponent} from 'react'
-import {isNumberObject} from "util/types";
+
 export type Team = {
     id: number
     full_name: string
