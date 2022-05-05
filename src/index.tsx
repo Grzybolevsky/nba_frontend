@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.PUBLIC_URL
+axios.defaults.baseURL = `${process.env.PUBLIC_URL}/api`
 
 ReactDOM.render(
     <React.StrictMode>
