@@ -1,22 +1,16 @@
-FROM alpine
+FROM node:current-alpine AS builder
 
-ENV TZ=Europe/Warsaw
+WORKDIR /app
+RUN apk update && \
+    apk upgrade --no-cache
 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+COPY . .
 
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
+RUN npm ci --production && \
+    npm run build
 
-RUN apk update
-RUN apk upgrade --no-cache
-RUN apk add --no-cache nodejs npm gnupg curl wget unzip vim
-RUN npm install -g serve
+FROM nginx:alpine AS runner
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
 
-EXPOSE 3000
-
-COPY . /app/ui/
-WORKDIR /app/ui/
-
-RUN npm install
-RUN npm run build
-ENTRYPOINT ["serve", "-s", "build"]
+CMD ["nginx", "-g", "daemon off;"]
