@@ -1,6 +1,8 @@
-import {Card, CardActions, CardContent, CardMedia, Typography} from '@mui/material'
+import {Card, CardActions, CardContent, CardMedia, IconButton, Typography} from '@mui/material'
 import Button from '@mui/material/Button'
 import React, {FunctionComponent} from 'react'
+import {Favorite, Info} from "@mui/icons-material";
+import {Link} from "react-router-dom";
 
 export type Team = {
     id: number
@@ -39,7 +41,17 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({player, on
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={() => onBuy(player)}>Dodaj do ulubionych</Button>
+                <IconButton
+                    component={Link}
+                    to={`/players/${player.id}`}
+                >
+                    <Info/>
+                </IconButton>
+                <IconButton
+                    onClick={() => onBuy(player)}
+                >
+                    <Favorite/>
+                </IconButton>
             </CardActions>
         </Card>
     )

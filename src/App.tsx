@@ -6,6 +6,8 @@ import MatchesList from "./pages/MatchesList";
 import ResponsiveAppBar from "./components/AppBar";
 import PlayersList from "./pages/PlayersList";
 import FavouritesProvider from "./contexts/FavouritesContext";
+import {PlayerView} from "./pages/PlayerView";
+import {Dashboard} from "./pages/Dashboard";
 
 function App() {
     return (
@@ -13,8 +15,9 @@ function App() {
             <FavouritesProvider>
                 <ResponsiveAppBar/>
                 <Routes>
-                    <Route path="/" element={<PlayersList/>}/>
+                    <Route path="/" element={<Dashboard/>}/>
                     <Route path="/players" element={<PlayersList/>}/>
+                    <Route path="/players/:id" element={<PlayerView/>}/>
                     <Route path="/matches" element={<MatchesList/>}/>
                     <Route path="/favourites" element={<FavouritesView/>}/>
                 </Routes>

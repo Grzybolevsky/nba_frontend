@@ -5,7 +5,8 @@ import {useEffect, useState} from 'react'
 import {useSearchParams} from "react-router-dom";
 import {useFavourites} from "../contexts/useFavourites";
 import axios from "axios";
-import {Pagination, Typography} from "@mui/material";
+import {InputAdornment, Pagination, TextField, Typography} from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
 const ItemList = styled(Grid)(({theme}) => ({
     ...theme.typography.body2,
@@ -14,7 +15,7 @@ const ItemList = styled(Grid)(({theme}) => ({
 
 let PlayersList = () => {
     const [players, setPlayers] = useState<Player[]>([])
-    const [pages, setPages] = useState<number>(0)
+    const [pages, setPages] = useState<number>(1)
     const [isLoading, setIsLoading] = useState(true)
     const [error] = useState<string | null>(null)
     const {addPlayer: removePlayer} = useFavourites()
@@ -23,7 +24,7 @@ let PlayersList = () => {
     useEffect(() => {
         setIsLoading(true);
         axios.get(`/players`,
-            {params: {page: searchParams.get('page'), 'per_page': 24}})
+            {params: {page: searchParams.get('page'), 'per_page': 24, search: searchParams.get('name')}})
             .then((response) => {
                 setPlayers(response.data.data);
                 setPages(response.data.meta.total_pages)
@@ -34,22 +35,39 @@ let PlayersList = () => {
     return (
         <>
             <h2>Gracze</h2>
+            <TextField
+                id="input-with-icon-textfield"
+                label="Wyszukiwanie"
+                fullWidth
+                value={searchParams.get('name')}
+                onChange={(e) => setSearchParams({name: String(e.target.value)}, {replace: false})}
+                InputProps={{
+                    startAdornment: (
+                        <InputAdornment position="start">
+                            <SearchIcon />
+                        </InputAdornment>
+                    ),
+                }}
+                variant="standard"
+            />
             {error
-                && (<p>{error}</p>)}
+            && (<p>{error}</p>)}
             {isLoading && <p>Loading...</p>}
             {!isLoading && !error &&
-                <>
-                    <Typography>Page: {searchParams.get('page') || 0 + 1}</Typography>
-                    <Pagination count={pages} page={Number(searchParams.get('page')) || 0}
-                                onChange={(e, page) => setSearchParams({page: String(page)}, {replace: true})}/>
-                    <ItemList container spacing={4}>
-                        {players.map(player =>
-                            <Grid item xs={3} key={player.first_name + player.last_name}>
-                                <PlayerSummary key={player.id} player={player} onBuy={removePlayer}/>
-                            </Grid>
-                        )}
-                    </ItemList>
-                </>
+            <>
+              <Pagination count={pages} page={Number(searchParams.get('page')) || 1}
+                          onChange={(e, page) => setSearchParams({page: String(page)}, {replace: true})}/>
+              <ItemList container spacing={4}>
+                  {players.map(player =>
+                      <Grid item xs={3} key={player.id}>
+                          <PlayerSummary
+                              key={player.id}
+                              player={player}
+                              onBuy={removePlayer}/>
+                      </Grid>
+                  )}
+              </ItemList>
+            </>
             }
         </>
     )
