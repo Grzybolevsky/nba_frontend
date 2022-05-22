@@ -6,11 +6,11 @@ RUN apk update && \
 
 COPY . .
 
-RUN npm ci --production && \
+RUN npm ci && \
     npm run build
 
 FROM nginx:alpine AS runner
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html/p22
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
