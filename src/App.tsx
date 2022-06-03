@@ -9,7 +9,7 @@ import FavouritesProvider from "./contexts/FavouritesContext";
 import { PlayerView } from "./pages/PlayerView";
 import { Dashboard } from "./pages/Dashboard";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <FavouritesProvider>
@@ -25,5 +25,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

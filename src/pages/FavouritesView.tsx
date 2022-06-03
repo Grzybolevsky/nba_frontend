@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import { useFavourites } from "../contexts/useFavourites";
 
-let FavouritesView = () => {
+export default function FavouritesView() {
   const { favourites, removePlayer } = useFavourites();
   const [snackbarMsg, setSnackbarMsg] = useState(null);
 
@@ -40,5 +40,4 @@ let FavouritesView = () => {
       />
     </>
   );
-};
-export default FavouritesView;
+}

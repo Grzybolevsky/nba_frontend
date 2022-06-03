@@ -13,7 +13,7 @@ const ItemList = styled(Grid)(({ theme }) => ({
   padding: theme.spacing(3),
 }));
 
-let PlayersList = () => {
+export default function PlayersList() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [pages, setPages] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -84,5 +84,4 @@ let PlayersList = () => {
       )}
     </>
   );
-};
-export default PlayersList;
+}

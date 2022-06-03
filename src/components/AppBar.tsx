@@ -22,7 +22,7 @@ const pages = [
   { name: "Ulubione", route: "favourites" },
 ];
 
-const ResponsiveAppBar = () => {
+export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const { favourites } = useFavourites();
 
@@ -120,5 +120,4 @@ const ResponsiveAppBar = () => {
       </Container>
     </AppBar>
   );
-};
-export default ResponsiveAppBar;
+}

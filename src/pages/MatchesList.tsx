@@ -21,7 +21,7 @@ export const getYMDFormat = (date: Date) => {
   return date.toISOString().split("T")[0];
 };
 
-let MatchesList = () => {
+export default function MatchesList() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error] = useState(null);
@@ -68,5 +68,4 @@ let MatchesList = () => {
       )}
     </>
   );
-};
-export default MatchesList;
+}
