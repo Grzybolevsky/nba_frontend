@@ -14,7 +14,7 @@ export const FavouritesContext = React.createContext({
 const FavouritesProvider: FunctionComponent<Favourites> = ({ children }) => {
   const [favourites, setFavourites] = useState<Set<string>>(new Set<string>());
   const addPlayer = (player: Player) => {
-    let newFavourites = new Set<string>([...favourites, player.name]);
+    let newFavourites = new Set<string>([...favourites, String(player.id)]);
     setFavourites(newFavourites);
   };
   const removePlayer = (playerName: string) => {

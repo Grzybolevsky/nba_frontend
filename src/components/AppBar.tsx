@@ -16,6 +16,7 @@ import { useFavourites } from "../contexts/useFavourites";
 import { Badge } from "@mui/material";
 
 const pages = [
+  { name: "Główna", route: "" },
   { name: "Gracze", route: "players" },
   { name: "Mecze", route: "matches" },
   { name: "Ulubione", route: "favourites" },

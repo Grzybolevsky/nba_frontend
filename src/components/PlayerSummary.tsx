@@ -3,14 +3,29 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
-import Button from "@mui/material/Button";
 import React, { FunctionComponent } from "react";
+import { Favorite, Info } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+
+export type Team = {
+  id: number;
+  full_name: string;
+};
 
 export type Player = {
-  name: string;
+  id: number;
+  first_name: string;
+  last_name: string;
+  position: string;
+  height_feet: number;
+  height_inches: number;
+  weight_pounds: number;
+  team: Team;
 };
+
 type PlayerSummaryProps = {
   player: Player;
   onBuy: (player: Player) => void;
@@ -24,18 +39,24 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({
       <CardMedia
         component="img"
         height="300"
-        image="https://icon-library.com/images/basketball-player-icon/basketball-player-icon-1.jpg"
+        image={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${101162}.png`}
         alt="green iguana"
       />
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {player.name}
+          {player.first_name + " " + player.last_name}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          {player.team.full_name}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => onBuy(player)}>
-          Dodaj do ulubionych
-        </Button>
+        <IconButton component={Link} to={`/players/${player.id}`}>
+          <Info />
+        </IconButton>
+        <IconButton onClick={() => onBuy(player)}>
+          <Favorite />
+        </IconButton>
       </CardActions>
     </Card>
   );

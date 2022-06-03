@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "http-proxy-middleware": "^2.0.6",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.3",
     "prettier": "2.6.2"
