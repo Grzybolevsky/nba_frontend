@@ -5,12 +5,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useFavourites } from "../contexts/useFavourites";
 import axios from "axios";
-import {
-  InputAdornment,
-  Pagination,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { InputAdornment, Pagination, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const ItemList = styled(Grid)(({ theme }) => ({

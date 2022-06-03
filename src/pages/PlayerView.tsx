@@ -40,7 +40,7 @@ export const PlayerView: FunctionComponent = () => {
         setStats(response.data.data[0]);
         setIsLoadingStats(false);
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <>

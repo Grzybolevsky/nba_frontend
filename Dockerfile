@@ -11,6 +11,7 @@ RUN npm ci && \
 
 FROM nginx:alpine AS runner
 COPY --from=builder /app/build /usr/share/nginx/html/p22
+COPY --from=builder /app/server /usr/share/nginx/sites-available
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon  off;"]
