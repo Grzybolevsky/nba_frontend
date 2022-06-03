@@ -17,7 +17,6 @@ const Stat: FunctionComponent<{ name: string; value: string }> = ({
 export const PlayerView: FunctionComponent = () => {
   const [player, setPlayer] = useState<Player>({} as Player);
   const [stats, setStats] = useState<any>(null);
-  const [season, setSeason] = useState<number>(new Date().getFullYear());
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingStats, setIsLoadingStats] = useState(true);
   const [error] = useState<string | null>(null);
