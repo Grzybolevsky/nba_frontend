@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from '../Components/Base/listItems';
-import { Login } from '@mui/icons-material';
+import { LoginRounded } from '@mui/icons-material';
 import Drawer from '../Components/Base/Drawer';
 import { AppBar } from '../Components/Base/AppBar';
 import Content from '../Components/Base/Content';
@@ -54,7 +54,7 @@ export default function BasePage() {
               Dashboard
             </Typography>
             <IconButton color='inherit'>
-              <Login />
+              <LoginRounded />
             </IconButton>
           </Toolbar>
         </AppBar>
