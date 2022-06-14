@@ -21,7 +21,7 @@ export default function AllPlayers() {
   const [pages, setPages] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error] = useState<string | null>(null);
-  const { addPlayer: removePlayer } = useFavorites();
+  const { addPlayer, removePlayer } = useFavorites();
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function AllPlayers() {
                 <PlayerSummary
                   key={player.id}
                   player={player}
-                  onBuy={removePlayer}
+                  addFavorite={addPlayer}
                 />
               </Grid>
             ))}

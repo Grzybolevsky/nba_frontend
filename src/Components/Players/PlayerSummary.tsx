@@ -14,10 +14,10 @@ import axios from 'axios';
 
 type PlayerSummaryProps = {
   player: Player;
-  onBuy: (player: Player) => void;
+  addFavorite: (player: Player) => void;
 };
 
-export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, onBuy }) => {
+export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, addFavorite }) => {
   const [imageUrl, setImageUrl] = useState<string>();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -25,8 +25,8 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, o
     axios
       .get(`/api/players/${player.id}`)
       .then((response) => {
-        setIsLoading(false);
         setImageUrl(response.data.imageUrl)
+        setIsLoading(false);
       });
   }, [player.id]);
   return (
@@ -49,7 +49,7 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, o
         <IconButton component={Link} to={`/players/${player.id}`}>
           <Info />
         </IconButton>
-        <IconButton onClick={() => onBuy(player)}>
+        <IconButton onClick={() => addFavorite(player)}>
           <Favorite />
         </IconButton>
       </CardActions>
