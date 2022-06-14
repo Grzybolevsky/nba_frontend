@@ -3,5 +3,5 @@ export default function SingleGame() {
     <>
       Jeden mecz:
     </>
-  )
+  );
 }

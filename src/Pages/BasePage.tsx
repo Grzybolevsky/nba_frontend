@@ -14,7 +14,7 @@ import { LoginRounded } from '@mui/icons-material';
 import Drawer from '../Components/Base/Drawer';
 import { AppBar } from '../Components/Base/AppBar';
 import Content from '../Components/Base/Content';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Dashboard from '../Components/Dashboard/Dashboard';
 import AllPlayers from '../Components/Players/AllPlayers';
 import SinglePlayer from '../Components/Players/SinglePlayer';
@@ -23,8 +23,10 @@ import Favorites from '../Components/Favorites/Favorites';
 import AllTeams from '../Components/Teams/AllTeams';
 import SingleGame from '../Components/Games/SingleGame';
 import SingleTeam from '../Components/Teams/SingleTeam';
+import LoginPage from '../Components/Base/Login';
 
 const mdTheme = createTheme();
+
 
 export default function BasePage() {
   const [open, setOpen] = React.useState(true);
@@ -45,7 +47,7 @@ export default function BasePage() {
                         sx={{ marginRight: '36px', ...(open && { display: 'none' }) }}>
               <MenuIcon />
             </IconButton>
-            <img src={'logo.png'} style={{ width: 30, height: 60 }} alt={""}/>
+            <img src={'logo.png'} style={{ width: 30, height: 60 }} alt={''} />
             <Typography component='h1'
                         variant='h6'
                         color='inherit'
@@ -53,7 +55,7 @@ export default function BasePage() {
                         sx={{ flexGrow: 1 }}>
               Dashboard
             </Typography>
-            <IconButton color='inherit'>
+            <IconButton component={Link} to='/login' color='inherit'>
               <LoginRounded />
             </IconButton>
           </Toolbar>
@@ -75,18 +77,19 @@ export default function BasePage() {
             <Divider sx={{ my: 1 }} />
           </List>
         </Drawer>
-      <Content>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/players" element={<AllPlayers />} />
-          <Route path="/players/:id" element={<SinglePlayer />} />
-          <Route path="/games" element={<AllGames />} />
-          <Route path="/games/:id" element={<SingleGame />} />
-          <Route path="/teams" element={<AllTeams />} />
-          <Route path="/teams/:id" element={<SingleTeam />} />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-      </Content>
+        <Content>
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/players' element={<AllPlayers />} />
+            <Route path='/players/:id' element={<SinglePlayer />} />
+            <Route path='/games' element={<AllGames />} />
+            <Route path='/games/:id' element={<SingleGame />} />
+            <Route path='/teams' element={<AllTeams />} />
+            <Route path='/teams/:id' element={<SingleTeam />} />
+            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/login' element={<LoginPage />} />
+          </Routes>
+        </Content>
       </Box>
     </ThemeProvider>
   );

@@ -1,13 +1,13 @@
 import { Team } from './Team';
 
 export interface Player {
-  playerId: number;
-  firstName: string;
-  lastName: string;
-  heightFeet: number;
-  heightInches: number;
-  weightPounds: number;
+  id: number;
+  first_name: string;
+  last_name: string;
+  height_feet: number;
+  height_inches: number;
+  weight_pounds: number;
   team: Team;
   position: string;
-  imageUrl: string;
+  image_url: string;
 }

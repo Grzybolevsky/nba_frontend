@@ -1,10 +1,10 @@
 export interface Team {
-  teamId: number;
+  id: number;
   abbreviation: string;
   city: string;
   conference: string;
   division: string;
-  fullName: string;
+  full_name: string;
   name: string;
 }
 

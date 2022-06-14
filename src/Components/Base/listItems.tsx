@@ -9,29 +9,29 @@ import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton component={Link} to="/">
+    <ListItemButton component={Link} to='/'>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary='Główna' />
     </ListItemButton>
-    <ListItemButton component={Link} to="/players">
+    <ListItemButton component={Link} to='/players'>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary='Gracze' />
     </ListItemButton>
-    <ListItemButton component={Link} to="/games">
+    <ListItemButton component={Link} to='/games'>
       <ListItemIcon>
         <SportsBaseball />
       </ListItemIcon>
       <ListItemText primary='Mecze' />
     </ListItemButton>
-    <ListItemButton component={Link} to="/teams">
+    <ListItemButton component={Link} to='/teams'>
       <ListItemIcon><Groups /></ListItemIcon>
       <ListItemText primary='Zespoły' />
     </ListItemButton>
-    <ListItemButton component={Link} to="/favorites">
+    <ListItemButton component={Link} to='/favorites'>
       <ListItemIcon>
         <Favorite />
       </ListItemIcon>
