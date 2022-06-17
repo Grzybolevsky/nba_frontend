@@ -39,7 +39,7 @@ export const FavoritePlayerSummary: FunctionComponent<FavoriteProps> = ({ favori
       {!isLoading && <CardMedia
         component='img'
         height='300'
-        image={playerData.image_url || 'https://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/celtics/media/generic-player-1040x760.png'}
+        image={playerData.image_url || `https://nba-players.herokuapp.com/players/${playerData.last_name}/${playerData.first_name}`}
         alt={'Player'}
       />}
       <CardContent>

@@ -15,7 +15,6 @@ import Drawer from '../Components/Base/Drawer';
 import { AppBar } from '../Components/Base/AppBar';
 import Content from '../Components/Base/Content';
 import { Link, Route, Routes } from 'react-router-dom';
-import Dashboard from '../Components/Dashboard/Dashboard';
 import AllPlayers from '../Components/Players/AllPlayers';
 import SinglePlayer from '../Components/Players/SinglePlayer';
 import AllGames from '../Components/Games/AllGames';
@@ -24,6 +23,8 @@ import AllTeams from '../Components/Teams/AllTeams';
 import SingleGame from '../Components/Games/SingleGame';
 import SingleTeam from '../Components/Teams/SingleTeam';
 import LoginPage from '../Components/Base/Login';
+import LoggedInOnly from "../Components/Helpers/LoggedInOnly";
+import {Dashboard} from "../Components/Dashboard/Dashboard";
 
 const mdTheme = createTheme();
 
@@ -86,7 +87,7 @@ export default function BasePage() {
             <Route path='/games/:id' element={<SingleGame />} />
             <Route path='/teams' element={<AllTeams />} />
             <Route path='/teams/:id' element={<SingleTeam />} />
-            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/favorites' element={<LoggedInOnly><Favorites/></LoggedInOnly>} />
             <Route path='/login' element={<LoginPage />} />
           </Routes>
         </Content>
