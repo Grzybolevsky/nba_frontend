@@ -23,8 +23,8 @@ import AllTeams from '../Components/Teams/AllTeams';
 import SingleGame from '../Components/Games/SingleGame';
 import SingleTeam from '../Components/Teams/SingleTeam';
 import LoginPage from '../Components/Base/Login';
-import LoggedInOnly from "../Components/Helpers/LoggedInOnly";
-import {Dashboard} from "../Components/Dashboard/Dashboard";
+import LoggedInOnly from '../Components/Helpers/LoggedInOnly';
+import { Dashboard } from '../Components/Dashboard/Dashboard';
 
 const mdTheme = createTheme();
 
@@ -87,7 +87,7 @@ export default function BasePage() {
             <Route path='/games/:id' element={<SingleGame />} />
             <Route path='/teams' element={<AllTeams />} />
             <Route path='/teams/:id' element={<SingleTeam />} />
-            <Route path='/favorites' element={<LoggedInOnly><Favorites/></LoggedInOnly>} />
+            <Route path='/favorites' element={<LoggedInOnly><Favorites /></LoggedInOnly>} />
             <Route path='/login' element={<LoginPage />} />
           </Routes>
         </Content>

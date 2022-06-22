@@ -4,6 +4,7 @@ import { Team } from '../../Interfaces/Team';
 import Grid from '@mui/material/Grid';
 import { TeamSummary } from './TeamSummary';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const ItemList = styled(Grid)(({ theme }) => ({
   ...theme.typography.body2,
@@ -33,7 +34,7 @@ export default function AllTeams() {
       {!isLoading && !error && (
         <ItemList container spacing={4}>
           {teams.map((team) => (
-            <Grid item xs={3} key={team.id}>
+            <Grid item xs={3} key={team.id} component={Link} to={`/teams/${team.id}`}>
               <TeamSummary
                 key={team.id}
                 team={team}

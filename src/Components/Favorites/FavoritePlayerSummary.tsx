@@ -30,10 +30,10 @@ export const FavoritePlayerSummary: FunctionComponent<FavoriteProps> = ({ favori
         setIsLoading(false);
       });
   }, [favoritePlayer.favoritePlayerId]);
-  if(playerData === undefined)
+  if (playerData === undefined)
     return (
       <></>
-    )
+    );
   return (
     <Card>
       {!isLoading && <CardMedia
