@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from '../Components/Base/listItems';
-import { LoginRounded } from '@mui/icons-material';
+import { LoginRounded, Logout } from '@mui/icons-material';
 import Drawer from '../Components/Base/Drawer';
 import { AppBar } from '../Components/Base/AppBar';
 import Content from '../Components/Base/Content';
@@ -25,11 +25,13 @@ import SingleTeam from '../Components/Teams/SingleTeam';
 import LoginPage from '../Components/Base/Login';
 import LoggedInOnly from '../Components/Helpers/LoggedInOnly';
 import { Dashboard } from '../Components/Dashboard/Dashboard';
+import { useCookies } from 'react-cookie';
 
 const mdTheme = createTheme();
 
 
 export default function BasePage() {
+  const [cookies] = useCookies(['user_session']);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -56,9 +58,15 @@ export default function BasePage() {
                         sx={{ flexGrow: 1 }}>
               Dashboard
             </Typography>
-            <IconButton component={Link} to='/login' color='inherit'>
-              <LoginRounded />
-            </IconButton>
+            {!cookies.user_session &&
+              <IconButton component={Link} to='/login' color='inherit'>
+                <LoginRounded />
+              </IconButton>}
+            {cookies.user_session &&
+              <IconButton href='http://localhost:8080/api/auth/logout' rel='noopener noreferrer'
+                          color='inherit'>
+                <Logout />
+              </IconButton>}
           </Toolbar>
         </AppBar>
         <Drawer variant='permanent' open={open}>
