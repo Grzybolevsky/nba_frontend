@@ -63,7 +63,7 @@ export default function BasePage() {
                 <LoginRounded />
               </IconButton>}
             {cookies.user_session &&
-              <IconButton href='http://localhost:8080/api/auth/logout' rel='noopener noreferrer'
+              <IconButton href='https://nba-heroku.herokuapp.com/api/auth/logout' rel='noopener noreferrer'
                           color='inherit'>
                 <Logout />
               </IconButton>}
