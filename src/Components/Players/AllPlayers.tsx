@@ -21,7 +21,7 @@ export default function AllPlayers() {
   const [pages, setPages] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error] = useState<string | null>(null);
-  const { addPlayer, removePlayer } = useFavorites();
+  const { addPlayer } = useFavorites();
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export default function AllPlayers() {
     axios
       .get(`/api-balldontlie/players`, {
         params: {
-          page: searchParams.get("page"),
+          page: searchParams.get('page'),
           per_page: PER_PAGE,
-          search: searchParams.get("name"),
-        },
+          search: searchParams.get('name')
+        }
       })
       .then((response) => {
         setPlayers(response.data.data);

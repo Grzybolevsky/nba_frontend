@@ -25,7 +25,7 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, a
     axios
       .get(`/api/players/${player.id}`)
       .then((response) => {
-        setImageUrl(response.data.imageUrl)
+        setImageUrl(response.data.imageUrl);
         setIsLoading(false);
       });
   }, [player.id]);
@@ -34,9 +34,9 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, a
       {!isLoading && <CardMedia
         component='img'
         height='300'
-        image={imageUrl || 'https://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/celtics/media/generic-player-1040x760.png'}
+        image={imageUrl || `https://nba-players.herokuapp.com/players/${player.last_name}/${player.first_name}`}
         alt={'Player'}
-      /> }
+      />}
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
           {player.first_name + ' ' + player.last_name}
