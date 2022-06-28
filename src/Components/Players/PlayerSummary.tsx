@@ -31,12 +31,12 @@ export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, a
   // }, [player.id]);
   return (
     <Card>
-      {!isLoading && <CardMedia
+      <CardMedia
         component='img'
         height='300'
         image={`https://nba-players.herokuapp.com/players/${player.last_name}/${player.first_name}`}
         alt={'Player'}
-      />}
+      />
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
           {player.first_name + ' ' + player.last_name}
