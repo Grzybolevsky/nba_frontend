@@ -20,7 +20,7 @@ export default function Favorites() {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`/api/favorites/players`)
+      .get(`https://nba-heroku.herokuapp.com/api/favorites/players`)
       .then((response) => {
         setPlayers(response.data);
         setIsLoading(false);

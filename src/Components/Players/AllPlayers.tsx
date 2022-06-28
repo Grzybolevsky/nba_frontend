@@ -27,7 +27,7 @@ export default function AllPlayers() {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`/api-balldontlie/players`, {
+      .get(`https://www.balldontlie.io/api/v1/players`, {
         params: {
           page: searchParams.get('page'),
           per_page: PER_PAGE,

@@ -24,7 +24,7 @@ export const FavoritePlayerSummary: FunctionComponent<FavoriteProps> = ({ favori
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`/api/players/${favoritePlayer.favoritePlayerId}`)
+      .get(`https://www.balldontlie.io/api/v1/players/${favoritePlayer.favoritePlayerId}`)
       .then((response) => {
         setPlayer(response.data);
         setIsLoading(false);

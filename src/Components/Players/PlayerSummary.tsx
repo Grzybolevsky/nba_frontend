@@ -18,23 +18,23 @@ type PlayerSummaryProps = {
 };
 
 export const PlayerSummary: FunctionComponent<PlayerSummaryProps> = ({ player, addFavorite }) => {
-  const [imageUrl, setImageUrl] = useState<string>();
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(`/api/players/${player.id}`)
-      .then((response) => {
-        setImageUrl(response.data.imageUrl);
-        setIsLoading(false);
-      });
-  }, [player.id]);
+  // const [imageUrl, setImageUrl] = useState<string>();
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   axios
+  //     .get(`/api/players/${player.id}`)
+  //     .then((response) => {
+  //       setImageUrl(response.data.imageUrl);
+  //       setIsLoading(false);
+  //     });
+  // }, [player.id]);
   return (
     <Card>
       {!isLoading && <CardMedia
         component='img'
         height='300'
-        image={imageUrl || `https://nba-players.herokuapp.com/players/${player.last_name}/${player.first_name}`}
+        image={`https://nba-players.herokuapp.com/players/${player.last_name}/${player.first_name}`}
         alt={'Player'}
       />}
       <CardContent>
