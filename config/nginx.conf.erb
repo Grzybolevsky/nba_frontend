@@ -50,19 +50,19 @@ http {
         location /api/ {
           proxy_pass https://nba-heroku.herokuapp.com/api/;
           proxy_ssl_server_name on;
-          proxy_set_header Host $host;
+          proxy_set_header Host nba-nginx.herokuapp.com;
         }
 
         location /api-balldontlie/ {
           proxy_pass https://www.balldontlie.io/api/v1/;
           proxy_ssl_server_name on;
-          proxy_set_header Host $host;
+          proxy_set_header Host nba-nginx.herokuapp.com;
         }
 
         location / {
           proxy_pass https://nba-heroku-ui.herokuapp.com/;
           proxy_ssl_server_name on;
-          proxy_set_header Host $host;
+          proxy_set_header Host nba-nginx.herokuapp.com;
         }
 
 	}
