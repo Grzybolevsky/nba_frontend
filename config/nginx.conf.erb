@@ -48,17 +48,12 @@ http {
 		#	proxy_pass http://app_server;
         #}
         location /api/ {
+          proxy_pass https://nba-heroku.herokuapp.com/;
+          proxy_ssl_server_name on;
+        }
+
+        location /api-balldontlie/ {
           proxy_pass https://www.balldontlie.io/api/v1/;
-          proxy_ssl_server_name on;
-        }
-
-        location /api/photo {
-          proxy_pass https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/;
-          proxy_ssl_server_name on;
-        }
-
-        location /dupa {
-          proxy_pass http://localhost:8080/api/;
           proxy_ssl_server_name on;
         }
 
