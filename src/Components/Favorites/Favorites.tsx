@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import { FavoritePlayerSummary } from './FavoritePlayerSummary';
 import { FavoritePlayer } from '../../Interfaces/FavoritePlayer';
-import {useSearchParams} from "react-router-dom";
 
 const ItemList = styled(Grid)(({ theme }) => ({
   ...theme.typography.body2,

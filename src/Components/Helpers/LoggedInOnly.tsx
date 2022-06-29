@@ -1,20 +1,12 @@
 import { useCookies } from 'react-cookie';
-import {PropsWithChildren, useEffect} from 'react';
-import {useSearchParams} from "react-router-dom";
+import { PropsWithChildren } from 'react';
 
 export default function LoggedInOnly({ children }: PropsWithChildren) {
-  const [cookies] = useCookies(['logged']);
-  const [searchParams, setSearchParams] = useSearchParams();
-  useEffect(() => {
-    if(searchParams.get("logged")) {
-      console.log('logged')
-      document.cookie = `logged=true;max-age=604800;`
-    }
-  }, [searchParams])
+  const [cookies] = useCookies(['user_session']);
   return (
     <>
-      {cookies.logged && children}
-      {!cookies.logged && <p>Log in to see this page.</p>}
+      {cookies.user_session && children}
+      {!cookies.user_session && <p>Log in to see this page.</p>}
     </>
   );
 }
